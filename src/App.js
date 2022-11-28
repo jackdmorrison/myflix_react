@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import react, {useState} from 'react';
+import Video from './video';
 function App() {
+  const [videos,setVideos]=useState([]);
+  const [videoObj,setVideoObj]= useState(null);
+  function getdata(){
+    fetch('http://34.243.107.31/myflix/videos').then((response)=> response.json()).then((data)=>setVideos(data))
+    console.log(videos);
+    if(videos.length===0) return 
+    else{
+      setVideoObj(videos.map(video=>(<Video key={video._id} video={video.video}/>)))
+    }
+    
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {videoObj}
+     <button onClick={getdata}> get</button>
     </div>
   );
 }
