@@ -1,5 +1,4 @@
 FROM node:17-alpine AS builder
-RUN apt-get update
 WORKDIR /myflix_react
 #ENV PATH /myflix_react/node_modules/.bin:$PATH
 COPY /myflix_react/package.json ./
