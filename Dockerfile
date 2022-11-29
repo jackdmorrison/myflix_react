@@ -1,4 +1,4 @@
-FROM node:10 AS builder
+FROM node:17-apline AS builder
 RUN apt-get update
 WORKDIR /myflix_react
 #ENV PATH /myflix_react/node_modules/.bin:$PATH
@@ -11,8 +11,6 @@ RUN npm run build
 
 FROM nginx:1.19.0
 WORKDIR /usr/share/nginx/html
-RUN -rf ./*
+RUN rm -rf ./*
 COPY --from=builder /myflix_react/build ./
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
-EXPOSE 80
-EXPOSE 8080
