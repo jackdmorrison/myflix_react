@@ -11,4 +11,6 @@ FROM nginx:1.19.0
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=builder /myflix_react/build .
+EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
