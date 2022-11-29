@@ -2,8 +2,8 @@ FROM node:10 AS builder
 RUN apt-get update
 WORKDIR /myflix_react
 #ENV PATH /myflix_react/node_modules/.bin:$PATH
-COPY package.json ./
-COPY package-lock.json ./
+COPY /myflix_react/package.json ./
+COPY /myflix_react/package-lock.json ./
 RUN npm install 
 
 COPY . ./
