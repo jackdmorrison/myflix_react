@@ -4,7 +4,7 @@ WORKDIR /myflix_react
 COPY myflix_react/package.json ./
 RUN npm install 
 
-COPY . ./
+COPY /myflix_react ./
 RUN npm run build
 
 FROM nginx:1.19.0
