@@ -1,7 +1,7 @@
 FROM node:17-alpine AS builder
 WORKDIR /myflix_react
 #ENV PATH /myflix_react/node_modules/.bin:$PATH
-COPY /myflix_react/package.json ./
+COPY package.json ./
 RUN npm install 
 
 COPY . ./
