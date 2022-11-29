@@ -1,4 +1,4 @@
-FROM node:17-apline AS builder
+FROM node:17-alpine AS builder
 RUN apt-get update
 WORKDIR /myflix_react
 #ENV PATH /myflix_react/node_modules/.bin:$PATH
