@@ -1,24 +1,16 @@
-import react, {useState} from 'react';
-import Video from './video';
+import {BrowserRouter as Router, Routes, Route, Link} from'react-router-dom';
+import Catalogue from './Catalogue'
+import Login from './login'
 function App() {
-  const [videos,setVideos]=useState([]);
-  const [videoObj,setVideoObj]= useState(null);
-  function getdata(){
-    fetch('http://34.243.107.31/myflix/videos').then((response)=> response.json()).then((data)=>setVideos(data))
-    console.log(videos);
-    if(videos.length===0) return 
-    else{
-      setVideoObj(videos.map(video=>(<Video key={video._id} video={video.video}/>)))
-    }
-    
-  }
-  
   return (
-    <div className="App">
-      {videoObj}
-     <button onClick={getdata}> get</button>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route exact path='/' element={< Login />}></Route>
+          <Route exact path='/catalogue' element={< Catalogue />}></Route>
+        </Routes>
+      </div>
+    </Router>
   );
 }
-
 export default App;
