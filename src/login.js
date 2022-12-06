@@ -19,31 +19,25 @@ export default function Login() {
 
         <div className="Login">
 
-            <Form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
 
-            <Form.Group controlId="Username">
 
-                <Form.Label>Username</Form.Label>
+                <label>Username</label>
 
-                <Form.Control autoFocus type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                <control autoFocus type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
 
-            </Form.Group>
 
-            <Form.Group  controlId="password">
+                <label>Password</label>
 
-                <Form.Label>Password</Form.Label>
+                <control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-                <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-
-            </Form.Group>
-
-            <Button form type="submit" disabled={!validateForm()}>
+            <button form type="submit" disabled={!validateForm()}>
 
                 Login
 
-            </Button>
+            </button>
 
-            </Form>
+            </form>
 
         </div>
 

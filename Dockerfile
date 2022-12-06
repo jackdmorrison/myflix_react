@@ -3,7 +3,6 @@ WORKDIR /myflix_react
 #ENV PATH /myflix_react/node_modules/.bin:$PATH
 COPY myflix_react/package.json ./
 RUN npm install 
-
 COPY /myflix_react ./
 RUN npm run build
 

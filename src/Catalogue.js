@@ -1,6 +1,5 @@
 import react, {useState} from 'react';
 import Video from './video';
-import Video from './video';
 function Catalogue() {
   const [videos,setVideos]=useState([]);
   const [videoObj,setVideoObj]= useState(null);
