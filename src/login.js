@@ -18,24 +18,15 @@ export default function Login() {
     return (
 
         <div className="Login">
-
-            <form onSubmit={handleSubmit}>
-
-
+            <form >
                 <label>Username</label>
-
-                <control autoFocus type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                <input type="text" name="username"/>
 
 
                 <label>Password</label>
-
-                <control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-
-            <button form type="submit" disabled={!validateForm()}>
-
-                Login
-
-            </button>
+                <input type="text" name="password"/>
+            <div></div>
+            <button form type="submit" disabled={!validateForm()}>Login</button>
 
             </form>
 

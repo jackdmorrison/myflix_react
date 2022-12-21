@@ -1,16 +1,25 @@
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter as  Route, Switch, BrowserRouter} from 'react-router-dom';
 import Catalogue from './Catalogue'
 import Login from './login'
 function App() {
+  const [token, setToken] = useState();
+  if(!token){
+    return <Login setToken={setToken}/>;
+  }
   return (
-    <Router>
       <div className="App">
-        <Routes>
-          <Route exact path='/' element={< Login />}></Route>
-          <Route exact path='/catalogue' element={< Catalogue />}></Route>
-        </Routes>
+        <BrowserRouter>
+          <Switch>
+            <Route path='/login'>
+              < Login />
+            </Route>
+            <Route path='/catalogue' >
+              < Catalogue />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+        
       </div>
-    </Router>
   );
 }
 export default App;
