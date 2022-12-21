@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request,make_response
+from flask import Flask, redirect, request
 import os
 import datetime
 import hashlib
@@ -30,7 +30,7 @@ def validate():
                 return resp
 @service.route('/test')
 def test_():
-    return render_template('myflix_react/DBSERVER/hello.html')
+    return redirect("http://63.35.237.119/catalogue", code=302)
 def encode_auth_token( user_id):
     secret=os.getenv("SECRET_KEY")
     payload={'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1),'iat': datetime.datetime.utcnow(),'sub': user_id}
