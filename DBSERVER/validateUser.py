@@ -30,7 +30,7 @@ def validate():
                 return resp
 @service.route('/test')
 def test_():
-    return render_template('hello.html')
+    return render_template('./hello.html')
 def encode_auth_token( user_id):
     secret=os.getenv("SECRET_KEY")
     payload={'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1),'iat': datetime.datetime.utcnow(),'sub': user_id}
