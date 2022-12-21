@@ -30,7 +30,7 @@ def validate():
                 return resp
 @service.route('/test')
 def test_():
-    return redirect('http://63.35.237.119/catalogue')
+    return redirect('http://63.35.237.119/catalogue',code=302)
 def encode_auth_token( user_id):
     secret=os.getenv("SECRET_KEY")
     payload={'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1),'iat': datetime.datetime.utcnow(),'sub': user_id}
