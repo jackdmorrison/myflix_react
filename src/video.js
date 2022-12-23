@@ -1,12 +1,13 @@
 import React from 'react'
-
 export default function video({video}) {
   return (
-    <>
-        <h1>{video.Name}</h1>
-        <p>category: {video.category}</p>
-        <img src={video.picture} alt={video.name}/>
-            
-    </>
+    <div class="card" style="width: 18rem;">
+      <img src={video.picture} class="card-img-top" alt="{video.name}"/>
+      <div class="card-body">
+        <h5 class="card-title">{video.Name}</h5>
+        <p class="card-text">category: {video.category}</p>
+        <a href="#" class="btn btn-primary">Watch</a>
+      </div>
+    </div>
   )
 }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 export default function Login() {
 
     const [username,setUsername]= useState("");
@@ -11,13 +10,14 @@ export default function Login() {
     }
 
     function handleSubmit(event) {
-        event.preventDefault();
+        //event.preventDefault();
 
     }
 
     return (
 
         <div className="Login">
+            
             <form >
                 <label>Username</label>
                 <input type="text" name="username"/>
@@ -26,7 +26,7 @@ export default function Login() {
                 <label>Password</label>
                 <input type="text" name="password"/>
             <div></div>
-            <button form type="submit" disabled={!validateForm()}>Login</button>
+            <button form type="submit" disabled={!validateForm()} onClick={handleSubmit()}>Login</button>
 
             </form>
 

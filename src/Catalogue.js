@@ -14,7 +14,7 @@ function Catalogue() {
   }
   
   return (
-    <div className="Catalogue">
+    <div class="container">
       {videoObj}
      <button onClick={getdata}> get</button>
     </div>
