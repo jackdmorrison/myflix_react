@@ -37,7 +37,7 @@ services:
       db:
         condition: service_healthy
 
-  proxy:
+  nginx:
     build: nginx
     restart: always
     ports:
