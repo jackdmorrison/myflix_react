@@ -1,7 +1,59 @@
-version: "3.9"
 services:
-  web:
-    build: .
+  db:
+    image: mysql:8
+    command: '--default-authentication-plugin=mysql_native_password'
+    restart: always
+    healthcheck:
+      test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 --password="$$(cat /run/secrets/db-password)" --silent']
+      interval: 3s
+      retries: 5
+      start_period: 30s
+    secrets:
+      - db-password
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backnet
+    environment:
+      - MYSQL_DATABASE=example
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+    expose:
+      - 3306
+      - 33060
+
+  flask:
+    build:
+      context: flask
+      target: builder
+    restart: always
+    secrets:
+      - db-password
     ports:
-      - "8000:5000"
-  
+      - 5000:5000
+    networks:
+      - backnet
+      - frontnet
+    depends_on:
+      db:
+        condition: service_healthy
+
+  proxy:
+    build: nginx
+    restart: always
+    ports:
+      - 80:80
+    depends_on: 
+      - backend
+    networks:
+      - frontnet
+
+volumes:
+  db-data:
+
+secrets:
+  db-password:
+    file: .secret/pass.txt
+
+networks:
+  backnet:
+  frontnet:
