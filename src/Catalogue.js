@@ -1,4 +1,6 @@
 import react, {useState} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Video from './video';
 function Catalogue() {
   const [videos,setVideos]=useState([]);
@@ -14,7 +16,7 @@ function Catalogue() {
   }
   
   return (
-    <div class="container">
+    <div className="container">
       {videoObj}
      <button onClick={getdata}> get</button>
     </div>
