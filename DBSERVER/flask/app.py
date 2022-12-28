@@ -6,7 +6,7 @@ import hashlib
 import mysql.connector
 import jwt
 mydb = mysql.connector.connect(
-    host="http://db:3306",
+    host="db",
     user='root',
     password=os.getenv('SQL_password'),
     database='USERS'
