@@ -7,11 +7,12 @@ import mysql.connector
 import jwt
 import time
 time.sleep(1)
+password=open('run/secrets/db-password')
 mydb = mysql.connector.connect(
     host="db",
     user="root",
     port=3306,
-    password='changeme',
+    password=password.read(),
     database='USERS',
     auth_plugin='mysql_native_password'
 )
