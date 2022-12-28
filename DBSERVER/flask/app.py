@@ -44,5 +44,4 @@ def encode_auth_token( user_id):
     return encoded_jwt
 
 if __name__ =='__main__':
-    port= int (os.environ.get('PORT',5000))
-    service.run(host='0.0.0.0', port=port)
+    service.run()
