@@ -16,7 +16,7 @@ services:
       - backnet
     environment:
       - MYSQL_DATABASE=USERS
-      - MYSQL_ROOT_PASSWORD_FILE=/run/.secret/db-password
+      - MYSQL_ROOT_PASSWORD_FILE=.secret/db-password
     expose:
       - 3306
       - 33060
