@@ -16,7 +16,7 @@ services:
       - backnetwork
     environment:
       - MYSQL_DATABASE= USERS
-      - MYSQL_ROOT_PASSWORD_FILE= run/secrets/db-password
+      - MYSQL_ROOT_PASSWORD_FILE= /run/secrets/db-password
 
   flask:
     build:
