@@ -8,6 +8,7 @@ import jwt
 mydb = mysql.connector.connect(
     host="db",
     user='root',
+    port=33060,
     password=os.getenv('SQL_password'),
     database='USERS',
     auth_plugin='mysql_native_password'

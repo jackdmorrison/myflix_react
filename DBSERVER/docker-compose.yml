@@ -17,11 +17,9 @@ services:
     environment:
       - MYSQL_DATABASE=USERS
       - MYSQL_ROOT_PASSWORD=db-password
-    ports:
-      - 3306:3306
-    # expose:
-    #   - 3306
-    #   - 33060
+    expose:
+      - 3306
+      - 33060
 
   flask:
     build:
@@ -33,7 +31,7 @@ services:
     ports:
       - 5000:5000
     networks:
-      #- frontnetwork
+      - frontnetwork
       - backnetwork
     depends_on:
       db:
