@@ -33,7 +33,7 @@ services:
     ports:
       - 5000:5000
     networks:
-     - backnet
+      - backnet
       - frontnet
     depends_on:
       db:
