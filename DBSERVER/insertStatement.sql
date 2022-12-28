@@ -1,1 +1,0 @@
-INSERT INTO user_data(userEmail, userPassword,paymentType) VALUES ('jack@example.com', MD5('password'),'paypal');
