@@ -5,6 +5,8 @@ import datetime
 import hashlib
 import mysql.connector
 import jwt
+import time
+time.sleep(1)
 mydb = mysql.connector.connect(
     host="db",
     user="root",
