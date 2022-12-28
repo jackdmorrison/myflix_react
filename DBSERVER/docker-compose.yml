@@ -33,9 +33,9 @@ services:
     networks:
       - frontnetwork
       - backnetwork
-    depends_on:
-      db:
-        condition: service_healthy
+    # depends_on:
+    #   db:
+    #     condition: service_healthy
 
   nginx:
     build: nginx
