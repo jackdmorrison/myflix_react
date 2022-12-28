@@ -9,7 +9,8 @@ mydb = mysql.connector.connect(
     host="db",
     user='root',
     password=os.getenv('SQL_password'),
-    database='USERS'
+    database='USERS',
+    auth_plugin='mysql_native_password'
 )
 mycursor = mydb.cursor()
 service = Flask(__name__)
