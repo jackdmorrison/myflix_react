@@ -1,9 +1,12 @@
-#bind-address=backnetwork
-[mysqld]
-character-set-server=utf8mb4
-collation-server=utf8mb4_unicode_ci
-
 [client]
-default-character-set=utf8mb4
-user = root
-password = "changeme"
+port=3306
+socket=/tmp/mysql.sock
+
+[mysqld]
+port=3306
+socket=/tmp/mysql.sock
+key_buffer_size=16M
+max_allowed_packet=128M
+
+[mysqldump]
+quick
