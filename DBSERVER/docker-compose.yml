@@ -12,13 +12,14 @@ services:
       - db-password
     volumes:
       - db-data:/var/lib/mysql
-      - ./my_custom.cnf:/etc/mysql/my.cnf
     networks:
       - backnetwork
     environment:
-      - MYSQL_DATABASE= USERS
-      - MYSQL_ROOT_PASSWORD_FILE= /run/secrets/db-password
-
+      MYSQL_DATABASE: USERS
+      MYSQL_ROOT_PASSWORD: db-password
+    expose:
+      - 3306
+      #- 33060
   flask:
     build:
       context: flask
