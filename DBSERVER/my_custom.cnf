@@ -4,7 +4,6 @@ character-set-server=utf8mb4
 collation-server=utf8mb4_unicode_ci
 
 [client]
-port=33060
 default-character-set=utf8mb4
 user = root
 password = "changeme"
