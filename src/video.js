@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 export default function video({video}) {
-  const imgSRC="Thumbnails"+video.pic;
+  const imgSRC="Thumbnails/"+video.pic;
   return (
     <div class="card" style={{width: '18rem'}}>
       <img src={imgSRC} class="card-img-top" alt={video.name}/>
