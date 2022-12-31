@@ -5,6 +5,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Validate from './validate'
 import Catalogue from './Catalogue'
 import Login from './login'
+import Player from './player'
+const fs = require('fs');
 function App() {
   // const [token, setToken] = useState();
   // if(!token){
@@ -17,6 +19,7 @@ function App() {
             <Route exact path='/' element={<Validate/>}/>
             <Route exact path='/login' element={< Login />}/>
             <Route exact path='/catalogue'element={<Catalogue/>} />
+            <Route exact path='/video/:id' element={<Player/>}>
           </Routes>
         </BrowserRouter>
         
