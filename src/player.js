@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import { useParams } from "react-router-dom";
 export default class player extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props.params.id)
         this.state ={
-            videoId: this.props.atch.params.id,
+            videoId: this.props.params.id,
             videoData: {}
         };
     }
