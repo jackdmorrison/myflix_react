@@ -22,7 +22,7 @@ export default class player extends Component {
             <>
             
                 <video controls muted autoPlyay>
-                    <source src={`http://${this.state.videoData.video.ip}:4000/video/${videoData._id.$oid}`} type="video/mp4"></source>
+                    <source src={`http://${this.state.videoData.video.ip}:4000/video/${this.state.videoData._id.$oid}`} type="video/mp4"></source>
                 </video>
             </>
           )

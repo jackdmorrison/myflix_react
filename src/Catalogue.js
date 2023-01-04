@@ -10,7 +10,7 @@ function Catalogue() {
     console.log(videos);
     if(videos.length===0) return 
     else{
-      setVideoObj(videos.map(video=>(<Video key={video._id} video={video.video} id={video._id}/>)))
+      setVideoObj(videos.map(video=>(<Video key={video._id} video={video}/>)))
     }
     
   }
