@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-export default function video({video}) {
+export default function video({video,_id}) {
   //const imgSRC="./"+video.pic;
   let imgSRC=require("./Thumbnails/"+video.pic);
   return (
@@ -10,7 +10,7 @@ export default function video({video}) {
       <div class="card-body">
         <h5 class="card-title">{video.Name}</h5>
         <p class="card-text">category: {video.category}</p>
-        <a href="#" class="btn btn-primary">Watch</a>
+        <a href={'/video/'+_id.$oid} class="btn btn-primary">Watch</a>
       </div>
     </div>
   )
