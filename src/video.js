@@ -1,11 +1,14 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { eventWrapper } from '@testing-library/user-event/dist/utils';
 export default function video({video}) {
-  //const imgSRC="./"+video.pic;
-  
-  let imgSRC=require("./Thumbnails/"+video.video.thumb);
+  let imgSRC=require("./Thumbnails/Test.png");
+  try{
+    let imgSRC=require("./Thumbnails/"+video.video.thumb);
+  }
+  catch(e){
+    console.error("Error loading video thumbnail")
+  }
   
   return (
     <div className="card" style={{width: '18rem'}}>
