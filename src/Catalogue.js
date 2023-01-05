@@ -30,7 +30,7 @@ function Catalogue() {
           return(<Video key={video._id.$oid} video={video}/>)
         }
         else{
-          return(<></>)
+          return;
         };
       
       }))
