@@ -16,7 +16,7 @@ function Catalogue() {
     dataFetch();
     if(videos.length===0) return 
     else{
-      setVideoObj(videos.map(video=>(<Video key={video._id} video={video}/>)))
+      setVideoObj(videos.map(video=>(<Video key={video.$oid} video={video}/>)))
     }
   },[videos])
   
@@ -25,7 +25,7 @@ function Catalogue() {
     
   
   return (
-    <div className="container">
+    <div className="container row">
       {videoObj}
     </div>
   );
