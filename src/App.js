@@ -7,7 +7,7 @@ import Catalogue from './Catalogue'
 import Login from './login'
 import Player from './player'
 function App() {
-  let params= useParams()
+  let {id}= useParams()
   // const [token, setToken] = useState();
   // if(!token){
   //   return <Login setToken={setToken}/>;
@@ -19,8 +19,7 @@ function App() {
             <Route exact path='/' element={<Validate/>}/>
             <Route exact path='/login' element={< Login />}/>
             <Route exact path='/catalogue' element={<Catalogue/>} />
-            <Route exact path='/video/:id' render={(props)=>
-              <Player {...props} router={{params}}/>}/>
+            <Route exact path='/video/:id' element={<Player/>}/>
           </Routes>
         </BrowserRouter>
         
