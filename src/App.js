@@ -38,7 +38,13 @@ function App() {
   );
   }
   else{
-    return (< Login />)
+    return (<BrowserRouter>
+              <Routes>
+                <Route exact path='/*' element={<Login/>}/>
+                <Route exact path='/signup' element={< Signup />}/>
+              </Routes>
+            </BrowserRouter>
+                )
   }
   
 }

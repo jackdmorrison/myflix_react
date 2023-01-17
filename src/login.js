@@ -37,6 +37,7 @@ export default function Login() {
 
         <div className="Login">
             <main className="form-signin m-auto vertical-center container-fluid">
+                <h1>Log In</h1>
                 <div className="container w-100 container-fluid ">
                     <div className="row col-5 align-self-center">
                         <form onSubmit = {handleSubmit} >
