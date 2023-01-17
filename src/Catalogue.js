@@ -5,6 +5,9 @@ import Video from './video';
 function Catalogue() {
   const [videos,setVideos]=useState([]);
   const [videoObj,setVideoObj]= useState(null);
+  const [Short,setShort]= useState([]);
+  const [Long,setLong]= useState([]);
+  const [Medium,setMedium]= useState([]);
   const [open, setOpen] = useState(false);
   const [category,setCategory] = useState("all")
   const handleOpen = ()=>{
@@ -20,9 +23,47 @@ function Catalogue() {
       setVideos(data);
     };
     dataFetch();
+    
     if(videos.length===0) return 
     else if(category=="all"){
-      setVideoObj(videos.map(video=>(<Video key={video._id.$oid} video={video}/>)))
+      setShort([]);
+      setLong([]);
+      setMedium([]);
+      setMedium(
+        videos.map(video=>{
+          if(video.video.category==="medium"){
+            return(<Video key={video._id.$oid} video={video}/>)
+          }
+          else{
+            return;
+          };
+      }));
+      setLong(
+        videos.map(video=>{
+          
+          if(video.video.category==="long"){
+            return(<Video key={video._id.$oid} video={video}/>)
+          }
+          else{
+            return;
+          };
+      }));
+      setShort(
+        
+        videos.map(video=>{
+          if(video.video.category==="short"){
+            return(<Video key={video._id.$oid} video={video}/>)
+          }
+          else{
+            return;
+          };
+        })
+
+      );
+      setVideoObj(
+        
+       [Short,Medium,Long] 
+      )
     }
     else{
       setVideoObj(videos.map(video=>{
@@ -34,6 +75,7 @@ function Catalogue() {
         };
       
       }))
+      
     }
   },[videos]);
   
@@ -69,8 +111,19 @@ function Catalogue() {
           </li>
         </ul>
       ) : null}
-      <div className="container row">
-        {videoObj}
+      <div>
+        <h1>Long:</h1>
+        <div className="container row">
+          {Long}
+        </div>
+        <h1>Medium:</h1>
+        <div className="container row">
+          {Medium}
+        </div>
+        <h1>Short:</h1>
+        <div className="container row">
+          {Short}
+        </div>
       </div>
     </>
     
