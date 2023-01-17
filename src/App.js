@@ -7,6 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Catalogue from './Catalogue'
 import Login from './login'
 import Player from './player'
+import Signup from './signup'
 function App() {
   let {id}= useParams()
   // const [token, setToken] = useState();
@@ -27,6 +28,7 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Catalogue/>}/>
             <Route exact path='/login' element={< Login />}/>
+            <Route exact path='/signup' element={< Signup />}/>
             <Route exact path='/catalogue' element={<Catalogue/>} />
             <Route exact path='/video/:id' element={<Player/>}/>
           </Routes>

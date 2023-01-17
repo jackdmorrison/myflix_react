@@ -94,23 +94,7 @@ function Catalogue() {
   
   return (
     <>
-      <button onClick={handleOpen}>Category</button>
-      {open ? (
-        <ul className="menu">
-          <li className="menu-item">
-            <button onClick={handleCategory}>all</button>
-          </li>
-          <li className="menu-item">
-            <button onClick={handleCategoryS}>short</button>
-          </li>
-          <li className="menu-item">
-            <button onClick={handleCategoryM}>medium</button>
-          </li>
-          <li className="menu-item">
-            <button onClick={handleCategoryL}>long</button>
-          </li>
-        </ul>
-      ) : null}
+      
       <div>
         <h1>Long:</h1>
         <div className="container row">

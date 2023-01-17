@@ -28,7 +28,7 @@ root.render(
 
           <div className="text-end">
           <a href="/login" ><button type="button" href="/login" onClick={handleLogout} className="btn btn-outline-dark me-2">Logout</button></a>
-          <button type="button" className="btn btn-warning">Sign-up</button>
+          <a href="/signup" ><button type="button" href="/signup" className="btn btn-warning">Sign-up</button></a>
           </div>
       </div>
       <App />
