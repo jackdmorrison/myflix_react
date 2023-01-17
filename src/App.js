@@ -13,6 +13,7 @@ function App() {
   // if(!token){
   //   return <Login setToken={setToken}/>;
   // }
+  console.log(localStorage.getItem('user'))
   if(localStorage.getItem('user')!=true){
     return (< Login />)
   }
