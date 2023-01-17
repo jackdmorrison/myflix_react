@@ -7,6 +7,13 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const handleLogout=()=>{
+  localStorage.setItem('user', JSON.stringify({'valid':'No','sub': 'none'}));
+}
+// var login=(<a href="/login" ><button type="button" href="/login" className="btn btn-outline-dark me-2">Login</button></a>)
+// try{if(JSON.parse(localStorage.getItem('user')).valid==="Yes"){
+//   login=(<a href="/login" ><button type="button" href="/login" className="btn btn-outline-dark me-2">Logout</button></a>)
+// }}catch(e){console.log(e)}
 root.render(
   <React.StrictMode>
     <div className="container">
@@ -20,7 +27,7 @@ root.render(
           </ul>
 
           <div className="text-end">
-          <a href="/login" ><button type="button" href="/login" className="btn btn-outline-dark me-2">Login</button></a>
+          <a href="/login" ><button type="button" href="/login" onClick={handleLogout} className="btn btn-outline-dark me-2">Logout</button></a>
           <button type="button" className="btn btn-warning">Sign-up</button>
           </div>
       </div>

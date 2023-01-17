@@ -13,14 +13,15 @@ function App() {
   // if(!token){
   //   return <Login setToken={setToken}/>;
   // }
-  console.log(localStorage.getItem('user'))
-  if(localStorage.getItem('user')!=true){
+  try{
+    var user= JSON.parse(localStorage.getItem('user'))
+  }
+  catch(e){
     return (< Login />)
   }
-  else if(JSON.parse(localStorage.getItem('user')).valid==="No"){
-    return (< Login />)
-  }
-  return (
+  console.log(user.valid)
+  if(user.valid==="Yes"){
+    return (
       <div className="App">
         <BrowserRouter>
           <Routes>
@@ -33,5 +34,10 @@ function App() {
         
       </div>
   );
+  }
+  else{
+    return (< Login />)
+  }
+  
 }
 export default App;

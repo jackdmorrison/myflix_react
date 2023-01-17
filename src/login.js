@@ -1,12 +1,13 @@
 import  { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-
+import {useNavigate} from 'react-router-dom';
 export default function Login() {
-
+    
     const [username,setUsername]= useState("");
     const [password, setPassword] = useState("");
     const [auth_token, setAuthToken] = useState({});
+    
     function validateForm() {
         return username.length > 0 && password.length > 0;
     }
@@ -15,13 +16,18 @@ export default function Login() {
         await fetch('http://54.170.146.114/validate',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({'Email': "jack@example.com",'Password':"password"})
+            body: JSON.stringify({'Email': username,'Password':password})
         }).then(response => response.json())
         .then(data =>setAuthToken(data) );
         if(auth_token!=null){
-            if(auth_token.status==="success"){
-                localStorage.setItem('user', JSON.stringify(auth_token.auth_token))
-            }
+            localStorage.setItem('user', JSON.stringify(auth_token.auth_token));
+        }
+        if(JSON.parse(localStorage.getItem('user')).valid==="Yes"){
+            console.log("YES");
+            
+            window.location.href='/';
+            
+            
         }
         console.log(JSON.parse(localStorage.getItem('user')));
         //console.log(auth_token);
